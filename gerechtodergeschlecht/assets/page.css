@@ -1,0 +1,303 @@
+/* Seitenlayout des Kampagnen-One-Pagers. Werte 1:1 aus dem Design-Prototyp
+   ("Kampagne Wir Väter.dc.html"), dort standen sie als Inline-Styles. */
+
+/* Das hidden-Attribut muss auch dort greifen, wo eine eigene display-Regel steht
+   (etwa display:flex) – sonst bliebe das Element trotz hidden sichtbar. */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: #f3f2f2;
+  color: #201e1d;
+  font-family: Archivo, system-ui, sans-serif;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.rule-top { border-top: 2px solid #201e1d; }
+.rule-bottom { border-bottom: 2px solid #201e1d; }
+
+/* — Kopf — */
+.site-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 2px solid #201e1d;
+  flex-wrap: wrap;
+}
+.site-head img { height: 44px; width: auto; }
+.site-nav {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+.site-nav a { color: #201e1d; text-decoration: none; }
+.site-nav a:hover { color: #ec3013; }
+.site-nav a.ext { color: #ae1800; }
+
+/* — Hero — */
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  padding: 64px 0 48px;
+  align-items: end;
+}
+.kicker {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ae1800;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  margin: 0 0 24px;
+  text-wrap: pretty;
+}
+.hero p {
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+
+/* — Bildflächen; ohne Symbolbild bleibt eine gekennzeichnete Platzhalterfläche — */
+.figure { background: #eae9e9; overflow: hidden; }
+.figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.figure-hero { width: 100%; aspect-ratio: 21 / 9; border-top: 2px solid #201e1d; }
+.figure-43 { aspect-ratio: 4 / 3; }
+.figure-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #605d5d;
+  border: 2px dashed #d7d3d3;
+  box-sizing: border-box;
+}
+
+/* — Zahlen — */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  border-top: 2px solid #201e1d;
+  border-bottom: 2px solid #201e1d;
+}
+.facts > div { padding: 28px 24px; border-right: 2px solid #201e1d; }
+.facts > div:first-child { padding-left: 0; }
+.facts > div:last-child { padding-right: 0; border-right: 0; }
+.facts .num {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.facts .num.accent { color: #ec3013; }
+.facts p { margin: 12px 0 0; font-size: 15px; text-wrap: pretty; }
+.facts .src { font-size: 12px; color: #605d5d; margin-top: 8px; }
+
+/* — Zweispalter (Warum, Family Gap) — */
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 48px;
+  padding: 64px 0;
+  border-bottom: 2px solid #201e1d;
+}
+.split-top { align-items: start; }
+.split h2,
+.section h2 {
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  text-wrap: pretty;
+}
+.split p { font-size: 16px; line-height: 1.55; color: #444141; text-wrap: pretty; }
+.split .figure-43 { margin-top: 24px; }
+.stack { display: grid; gap: 0; }
+.stack > div { padding: 20px 0; border-top: 2px solid #201e1d; }
+.stack > div:last-child { border-bottom: 2px solid #201e1d; }
+.stack h3 { font-size: 18px; margin: 0 0 6px; }
+.stack p { margin: 0; font-size: 15px; line-height: 1.5; color: #444141; }
+
+.section { padding: 64px 0; border-bottom: 2px solid #201e1d; }
+.section > h2 { margin-bottom: 32px; }
+
+/* — Mitmachen — */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+.steps > div { border-top: 2px solid #201e1d; padding-top: 16px; }
+.steps .num { font-size: 13px; font-weight: 600; color: #ae1800; margin-bottom: 8px; }
+.steps h3 { font-size: 20px; margin: 0 0 8px; }
+.steps p { margin: 0 0 16px; font-size: 15px; line-height: 1.5; color: #444141; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* — Vorlagen — */
+.tpl-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.tpl-head-row h2 { margin: 0; }
+.tpl-head-row p { margin: 0; font-size: 15px; color: #444141; max-width: 52ch; text-wrap: pretty; }
+
+.tpl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px 24px;
+}
+.tpl-card { display: flex; flex-direction: column; gap: 12px; }
+
+/* Die Karte zeigt die Vorlage in Originalproportion. Statt eines Transforms wird jede
+   Größe aus --u abgeleitet (eine Einheit = 1/1200 der Kartenbreite): Das braucht nur
+   Container-Query-Einheiten und funktioniert auch in älteren mobilen Browsern. */
+.tpl-frame {
+  container-type: inline-size;
+  aspect-ratio: 1200 / 1500;
+  overflow: hidden;
+  background: #eae9e9;
+}
+.tpl {
+  --u: calc(100cqw / 1200);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: calc(80 * var(--u));
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Archivo, system-ui, sans-serif;
+}
+.tpl-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: calc(24 * var(--u));
+}
+.tpl-logo { background: var(--plate); padding: calc(var(--logo-pad-y) * var(--u)) calc(var(--logo-pad-x) * var(--u)); }
+.tpl-logo img { height: calc(var(--logo-h) * var(--u)); width: auto; display: block; }
+.tpl-kicker {
+  font-size: calc(22 * var(--u));
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kicker);
+  padding-bottom: calc(6 * var(--u));
+  white-space: nowrap;
+}
+.tpl-rule { height: max(1px, calc(2 * var(--u))); background: var(--fg); margin: calc(40 * var(--u)) 0; }
+.tpl-rule-foot { margin: calc(40 * var(--u)) 0 calc(28 * var(--u)); }
+.tpl-headline {
+  font-size: calc(78 * var(--u));
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 0;
+  text-wrap: pretty;
+}
+.tpl-source { font-size: calc(24 * var(--u)); color: var(--muted); margin-top: calc(20 * var(--u)); }
+.tpl-fill { flex: 1; }
+.tpl-photo {
+  width: 100%;
+  height: calc(var(--photo-h) * var(--u));
+  background: var(--photo-bg);
+  position: relative;
+  overflow: hidden;
+}
+.tpl-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.08);
+}
+.tpl-photo-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(20 * var(--u));
+  font-size: calc(28 * var(--u));
+  font-weight: 600;
+  color: var(--muted);
+}
+.tpl-statement {
+  font-size: calc(46 * var(--u));
+  line-height: 1.15;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+.tpl-foot {
+  display: flex;
+  gap: calc(32 * var(--u));
+  font-size: calc(28 * var(--u));
+  font-weight: 600;
+  color: var(--kicker);
+  white-space: nowrap;
+}
+.tpl-foot .url { margin-left: auto; }
+
+/* — Formular unter der Karte — */
+.tpl-form { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.tpl-form .btn { justify-content: flex-start; }
+.tpl-form label.btn { cursor: pointer; }
+.tpl-status { font-size: 12px; color: #605d5d; }
+.tpl-status.is-error { color: #ae1800; }
+
+/* — Poster — */
+.poster { background: #ec3013; color: #ffffff; padding: 56px 40px; margin-top: 64px; }
+.poster h2 {
+  font-size: clamp(32px, 5vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px;
+  max-width: 18ch;
+  text-wrap: pretty;
+}
+.poster .line { font-size: 15px; font-weight: 600; }
+.poster a { color: #ffffff; }
+
+/* — Fußzeile — */
+.site-foot {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 24px 0 0;
+  font-size: 13px;
+  color: #605d5d;
+}
+.site-foot a { color: #605d5d; }
+
+/* — Fehlerseite — */
+.errorbox { padding: 64px 0; max-width: 52ch; }
+.errorbox h1 { font-size: 36px; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 16px; }
+.errorbox p { font-size: 17px; line-height: 1.5; margin: 0 0 24px; }

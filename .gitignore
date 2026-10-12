@@ -1,0 +1,15 @@
+# Laufzeitdaten des One-Pagers (Secret, Rate-Limit, Preview-Cache)
+gerechtodergeschlecht/var/*
+!gerechtodergeschlecht/var/.gitkeep
+
+# Lokale Config-Überschreibungen am Host
+gerechtodergeschlecht/config.local.php
+
+# Test-Ausgaben
+tests/out/
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
